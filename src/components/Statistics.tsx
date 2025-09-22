@@ -7,7 +7,7 @@ const Statistics = () => {
   const overviewStats = [
     {
       name: 'Total Revenue',
-      value: '$284,950',
+      value: '₹284,950',
       change: '+18.2%',
       trend: 'up',
       icon: DollarSign,
@@ -49,10 +49,10 @@ const Statistics = () => {
   ];
 
   const topCampaigns = [
-    { name: 'Summer Jackpot', participants: 1247, revenue: '$62,350', conversion: '4.2%' },
-    { name: 'New Year Bonanza', participants: 8945, revenue: '$178,900', conversion: '3.8%' },
-    { name: 'Valentine Special', participants: 892, revenue: '$22,300', conversion: '3.1%' },
-    { name: 'Christmas Special', participants: 6732, revenue: '$134,640', conversion: '3.9%' },
+    { name: 'Summer Jackpot', participants: 1247, revenue: '₹62,350', conversion: '4.2%' },
+    { name: 'New Year Bonanza', participants: 8945, revenue: '₹178,900', conversion: '3.8%' },
+    { name: 'Valentine Special', participants: 892, revenue: '₹22,300', conversion: '3.1%' },
+    { name: 'Christmas Special', participants: 6732, revenue: '₹134,640', conversion: '3.9%' },
   ];
 
   const userGrowth = [
@@ -145,7 +145,7 @@ const Statistics = () => {
                       ></div>
                     </div>
                     <span className="text-sm font-medium text-gray-900 w-16 text-right">
-                      ${(data.revenue / 1000).toFixed(0)}K
+                      ₹{(data.revenue / 1000).toFixed(0)}K
                     </span>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ const Statistics = () => {
               <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mx-auto mb-3">
                 <PieChart className="h-6 w-6 text-purple-600" />
               </div>
-              <p className="text-2xl font-bold text-gray-900">$324</p>
+              <p className="text-2xl font-bold text-gray-900">₹324</p>
               <p className="text-sm text-gray-600">Revenue (Last Hour)</p>
             </div>
           </div>

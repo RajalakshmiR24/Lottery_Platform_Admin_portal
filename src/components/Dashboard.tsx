@@ -5,7 +5,7 @@ const Dashboard = () => {
   const stats = [
     { name: 'Total Users', value: '12,847', change: '+12%', icon: Users, color: 'blue' },
     { name: 'Active Lotteries', value: '8', change: '+2', icon: Trophy, color: 'green' },
-    { name: 'Total Revenue', value: '$284,950', change: '+18%', icon: DollarSign, color: 'yellow' },
+    { name: 'Total Revenue', value: '₹284,950', change: '+18%', icon: DollarSign, color: 'yellow' },
     { name: 'Pending Approvals', value: '23', change: '-5', icon: Clock, color: 'red' },
   ];
 
@@ -18,9 +18,9 @@ const Dashboard = () => {
   ];
 
   const upcomingLotteries = [
-    { name: 'Summer Jackpot', date: '2025-02-15', participants: 1247, prize: '$50,000' },
-    { name: 'Valentine Special', date: '2025-02-14', participants: 892, prize: '$25,000' },
-    { name: 'Weekend Winner', date: '2025-02-08', participants: 534, prize: '$10,000' },
+    { name: 'Summer Jackpot', date: '2025-02-15', participants: 1247, prize: '₹50,000' },
+    { name: 'Valentine Special', date: '2025-02-14', participants: 892, prize: '₹25,000' },
+    { name: 'Weekend Winner', date: '2025-02-08', participants: 534, prize: '₹10,000' },
   ];
 
   return (

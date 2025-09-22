@@ -10,7 +10,7 @@ const WinnerManagement = () => {
       campaignName: 'New Year Bonanza',
       winnerName: 'Sarah Johnson',
       winnerEmail: 'sarah.j@gmail.com',
-      prizeAmount: '$100,000',
+      prizeAmount: '₹100,000',
       drawDate: '2025-01-01',
       announcedDate: '2025-01-02',
       status: 'announced',
@@ -24,7 +24,7 @@ const WinnerManagement = () => {
       campaignName: 'Christmas Special',
       winnerName: 'Mike Wilson',
       winnerEmail: 'mike.wilson@yahoo.com',
-      prizeAmount: '$50,000',
+      prizeAmount: '₹50,000',
       drawDate: '2024-12-25',
       announcedDate: '2024-12-26',
       status: 'announced',
@@ -38,7 +38,7 @@ const WinnerManagement = () => {
       campaignName: 'Thanksgiving Draw',
       winnerName: 'Emma Davis',
       winnerEmail: 'emma.davis@email.com',
-      prizeAmount: '$25,000',
+      prizeAmount: '₹25,000',
       drawDate: '2024-11-28',
       announcedDate: null,
       status: 'pending',
@@ -52,7 +52,7 @@ const WinnerManagement = () => {
       campaignName: 'Halloween Horror',
       winnerName: 'James Brown',
       winnerEmail: 'james.brown@gmail.com',
-      prizeAmount: '$15,000',
+      prizeAmount: '₹15,000',
       drawDate: '2024-10-31',
       announcedDate: '2024-11-01',
       status: 'announced',
@@ -112,7 +112,7 @@ const WinnerManagement = () => {
               <input
                 type="text"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="$0.00"
+                placeholder="₹0.00"
               />
             </div>
             <div>
@@ -294,7 +294,7 @@ const WinnerManagement = () => {
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Prizes</p>
-              <p className="text-2xl font-bold text-gray-900">$190K</p>
+              <p className="text-2xl font-bold text-gray-900">₹190K</p>
             </div>
           </div>
         </div>

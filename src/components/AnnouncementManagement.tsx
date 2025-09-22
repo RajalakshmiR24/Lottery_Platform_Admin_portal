@@ -8,7 +8,7 @@ const AnnouncementManagement = () => {
     {
       id: 1,
       title: 'Summer Jackpot Launch',
-      content: 'Exciting news! Our biggest jackpot of the year is now live. Join the Summer Jackpot with a prize pool of $50,000!',
+      content: 'Exciting news! Our biggest jackpot of the year is now live. Join the Summer Jackpot with a prize pool of ₹50,000!',
       type: 'campaign',
       priority: 'high',
       status: 'published',
@@ -30,7 +30,7 @@ const AnnouncementManagement = () => {
     {
       id: 3,
       title: 'New Year Winner Announcement',
-      content: 'Congratulations to Sarah Johnson for winning our New Year Bonanza! The prize of $100,000 has been transferred.',
+      content: 'Congratulations to Sarah Johnson for winning our New Year Bonanza! The prize of ₹100,000 has been transferred.',
       type: 'winner',
       priority: 'high',
       status: 'published',

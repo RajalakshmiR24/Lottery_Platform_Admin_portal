@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import LoginForm from './components/LoginForm';
 import { 
   Users, 
   Trophy, 
@@ -21,9 +24,9 @@ import WinnerManagement from './components/WinnerManagement';
 import Statistics from './components/Statistics';
 import AccessControl from './components/AccessControl';
 
-function App() {
+const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Set to false for login flow
+  const { user, logout } = useAuth();
 
   const navigation = [
     { id: 'dashboard', name: 'Dashboard', icon: Home },
@@ -59,52 +62,10 @@ function App() {
     }
   };
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          <div className="text-center mb-8">
-            <Trophy className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold text-gray-900">Admin Portal</h1>
-            <p className="text-gray-600">Lottery Platform Management</p>
-          </div>
-          <form onSubmit={(e) => { e.preventDefault(); setIsAuthenticated(true); }}>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input
-                  type="email"
-                  required
-                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="admin@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Password</label>
-                <input
-                  type="password"
-                  required
-                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="••••••••"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Sign In
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="h-screen bg-gray-50 flex overflow-hidden">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-900 text-white flex-shrink-0">
+      <div className="w-64 bg-gray-900 text-white flex-shrink-0 flex flex-col">
         <div className="p-6">
           <div className="flex items-center space-x-3">
             <Trophy className="h-8 w-8 text-blue-400" />
@@ -115,7 +76,7 @@ function App() {
           </div>
         </div>
         
-        <nav className="mt-8">
+        <nav className="mt-8 flex-1 overflow-y-auto">
           {navigation.map((item) => {
             const Icon = item.icon;
             return (
@@ -133,21 +94,21 @@ function App() {
           })}
         </nav>
 
-        <div className="absolute bottom-0 w-64 p-6 border-t border-gray-700">
+        <div className="p-6 border-t border-gray-700 mt-auto">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
               <UserCheck className="h-4 w-4" />
             </div>
             <div>
-              <p className="text-sm font-medium">Admin User</p>
-              <p className="text-xs text-gray-400">admin@platform.com</p>
+              <p className="text-sm font-medium">{user?.name}</p>
+              <p className="text-xs text-gray-400">{user?.email}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
           <div className="flex items-center justify-between">
@@ -159,7 +120,7 @@ function App() {
                 <Bell className="h-5 w-5" />
               </button>
               <button 
-                onClick={() => setIsAuthenticated(false)}
+                onClick={logout}
                 className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
                 Sign Out
@@ -169,11 +130,44 @@ function App() {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-6 overflow-y-auto">
           {renderContent()}
         </main>
       </div>
     </div>
+  );
+};
+
+const AppContent: React.FC = () => {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <Trophy className="h-12 w-12 text-blue-600 mx-auto mb-4 animate-pulse" />
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <LoginForm />;
+  }
+
+  return (
+    <ProtectedRoute>
+      <AdminDashboard />
+    </ProtectedRoute>
+  );
+};
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 

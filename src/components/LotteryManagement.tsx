@@ -8,9 +8,9 @@ const LotteryManagement = () => {
     {
       id: 1,
       name: 'Summer Jackpot 2025',
-      prize: '$50,000',
+      prize: '₹50,000',
       drawDate: '2025-02-15',
-      ticketPrice: '$10',
+      ticketPrice: '₹10',
       maxParticipants: 5000,
       currentParticipants: 1247,
       status: 'active',
@@ -19,9 +19,9 @@ const LotteryManagement = () => {
     {
       id: 2,
       name: 'Valentine Special',
-      prize: '$25,000',
+      prize: '₹25,000',
       drawDate: '2025-02-14',
-      ticketPrice: '$5',
+      ticketPrice: '₹5',
       maxParticipants: 3000,
       currentParticipants: 892,
       status: 'active',
@@ -30,9 +30,9 @@ const LotteryManagement = () => {
     {
       id: 3,
       name: 'Weekend Winner',
-      prize: '$10,000',
+      prize: '₹10,000',
       drawDate: '2025-02-08',
-      ticketPrice: '$3',
+      ticketPrice: '₹3',
       maxParticipants: 2000,
       currentParticipants: 534,
       status: 'scheduled',
@@ -41,9 +41,9 @@ const LotteryManagement = () => {
     {
       id: 4,
       name: 'New Year Bonanza',
-      prize: '$100,000',
+      prize: '₹100,000',
       drawDate: '2025-01-01',
-      ticketPrice: '$20',
+      ticketPrice: '₹20',
       maxParticipants: 10000,
       currentParticipants: 8945,
       status: 'completed',
@@ -79,7 +79,7 @@ const LotteryManagement = () => {
               <input
                 type="text"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="$0.00"
+                placeholder="₹0.00"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const LotteryManagement = () => {
               <input
                 type="text"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="$0.00"
+                placeholder="₹0.00"
               />
             </div>
           </div>
@@ -224,7 +224,7 @@ const LotteryManagement = () => {
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Prize Pool</p>
-              <p className="text-2xl font-bold text-gray-900">$185K</p>
+              <p className="text-2xl font-bold text-gray-900">₹185K</p>
             </div>
           </div>
         </div>
